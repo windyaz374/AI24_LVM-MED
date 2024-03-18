@@ -18,7 +18,7 @@ click==8.0.4
 cnn-finetune==0.6.0
 colorama==0.4.5
 commonmark==0.9.1
-conda==4.3.16
+#conda==4.3.16
 contextlib2==21.6.0
 cycler==0.11.0
 cython==0.29.22
@@ -65,7 +65,8 @@ matplotlib==3.5.2
 mccabe==0.6.1
 medpy==0.4.0
 ml-collections==0.1.1
-mmcv-full==1.6.2
+#mmcv-full==1.6.2
+mmcv-full
 mmdet==2.25.2
 model-index==0.1.11
 multidict==6.0.4
@@ -108,10 +109,12 @@ rsa==4.8
 ruamel-yaml==0.17.21
 ruamel-yaml-clib==0.2.7
 safetensors==0.3.1
-scikit-learn==0.24.1
+#scikit-learn==0.24.1
+scikit-learn
 self-attention-cv==1.2.3
 setuptools==59.5.0
-simpleitk==2.1.1
+#simpleitk==2.1.1
+simpleitk==2.1.1.1
 snowballstemmer==2.2.0
 sphinx==4.5.0
 sphinxcontrib-applehelp==1.0.2
