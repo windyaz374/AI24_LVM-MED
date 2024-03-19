@@ -4,7 +4,7 @@ import random
 
 def Kvasir_capsule_split():
     # Set directory paths
-    dataset_folder = ".\dataset_demo\Kvasir_capsule"
+    dataset_folder = "./dataset_demo/Kvasir_capsule"
     split_ratio = 0.8  # 80% for training, 20% for testing
 
     # Get all files in the dataset folder
