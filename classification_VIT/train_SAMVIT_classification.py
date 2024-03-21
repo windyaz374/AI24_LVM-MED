@@ -303,6 +303,14 @@ def train_SAMVIT(yml_args, cfg):
                 transforms.ToTensor(),
                 transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
             ])
+    elif cfg.base.dataset_name == 'kvasir_capsule':
+        data_path = cfg.dataloader.data_path
+        num_classes = 14
+        data_transforms = transforms.Compose([
+            transforms.Resize((224, 224)),
+            transforms.ToTensor(),
+            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+        ])            
     else:
         print (">>> No available datasets")
         exit()
