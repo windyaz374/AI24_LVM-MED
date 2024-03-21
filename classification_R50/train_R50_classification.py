@@ -315,7 +315,7 @@ def train_R50(yml_args, cfg):
         ])
     elif cfg.base.dataset_name == 'kvasir_capsule':
         data_path = cfg.dataloader.data_path
-        num_classes = 14
+        num_classes = 11
         data_transforms = transforms.Compose([
             transforms.Resize((224, 224)),
             transforms.ToTensor(),
