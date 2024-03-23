@@ -334,7 +334,7 @@ def train_R50(yml_args, cfg):
 
     if not yml_args.use_test_mode:
         # Training model with three trial times
-        for numtry in range(3):
+        for numtry in range(1):
             print ("*****"*3 + "\n" + "Trial", numtry)
             test_acc = TrainingTesting(cfg = cfg, numtry=numtry, pretrained_weight_name=cfg.base.original_checkpoint, data_path = data_path,
                                        num_classes = num_classes,

@@ -113,6 +113,13 @@ def TrainingTesting(cfg, numtry, pretrained_weight_name, data_path, num_classes,
                                   nn.Linear(512, 128),
                                   nn.ReLU(),
                                   nn.Linear(128, num_classes))
+        elif cfg.base.dataset_name == 'kvasir_capsule':
+            model.fc = nn.Sequential(
+                                  nn.Linear(num_ftrs, 512),
+                                  nn.ReLU(),
+                                  nn.Linear(512, 256),
+                                  nn.ReLU(),
+                                  nn.Linear(256, num_classes))            
         else:
             print(">>> Not implemented for selected datasets")
             exit()
@@ -322,7 +329,7 @@ def train_SAMVIT(yml_args, cfg):
     
     if not yml_args.use_test_mode:
         # Training model with three trial times
-        for numtry in range(3):
+        for numtry in range(1):
             print ("*****"*3 + "\n" + "Trial", numtry)
             test_acc = TrainingTesting(cfg=cfg, numtry=numtry, pretrained_weight_name=cfg.base.original_checkpoint, data_path = data_path,
                                        num_classes = num_classes,
