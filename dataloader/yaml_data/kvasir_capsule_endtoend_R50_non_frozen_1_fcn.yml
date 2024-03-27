@@ -11,10 +11,10 @@ base:
   valid_rate: 0.3
   
 train:
-  train_batch_size: 64
+  train_batch_size: 32
   valid_batch_size: 1
   test_batch_size: 1
-  learning_rate: 0.0005
+  learning_rate: 0.0001
   num_epochs: 30
   linear_eval: 0
   solver: 'adam'
