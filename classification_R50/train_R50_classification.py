@@ -114,6 +114,13 @@ def TrainingTesting(cfg, numtry, pretrained_weight_name, data_path, num_classes,
                                   nn.Linear(512, 128),
                                   nn.ReLU(),
                                   nn.Linear(128, num_classes))
+        elif cfg.base.dataset_name == 'kvasir_capsule':
+            model.fc = nn.Sequential(
+                                  nn.Linear(num_ftrs, 512),
+                                  nn.ReLU(),
+                                  nn.Linear(512, 256),
+                                  nn.ReLU(),
+                                  nn.Linear(256, num_classes))            
         else:
             print(">>> Not implemented for selected datasets")
             exit()
@@ -306,6 +313,14 @@ def train_R50(yml_args, cfg):
             transforms.ToTensor(),
             transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
         ])
+    elif cfg.base.dataset_name == 'kvasir_capsule':
+        data_path = cfg.dataloader.data_path
+        num_classes = 11
+        data_transforms = transforms.Compose([
+            transforms.Resize((224, 224)),
+            transforms.ToTensor(),
+            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+        ]) 
     else:
         print (">>> No available datasets")
         exit()
@@ -319,7 +334,7 @@ def train_R50(yml_args, cfg):
 
     if not yml_args.use_test_mode:
         # Training model with three trial times
-        for numtry in range(3):
+        for numtry in range(1):
             print ("*****"*3 + "\n" + "Trial", numtry)
             test_acc = TrainingTesting(cfg = cfg, numtry=numtry, pretrained_weight_name=cfg.base.original_checkpoint, data_path = data_path,
                                        num_classes = num_classes,

@@ -1,5 +1,5 @@
 import argparse
-from datasets_split import Kvasir_split, BUID_split, FGADR_split, MMWHS_MR_Heart_split, MMWHS_CT_Heart_split 
+from datasets_split import Kvasir_split, BUID_split, FGADR_split, MMWHS_MR_Heart_split, MMWHS_CT_Heart_split, Kvasir_capsule_split
 
 def get_args():
     parser = argparse.ArgumentParser(description='Train the UNet on images and target masks')
@@ -20,5 +20,7 @@ if __name__ == '__main__':
         MMWHS_MR_Heart_split.MMWHS_MR_Heart_split()
     elif args.dataset_name == "MMWHS_CT_Heart":
         MMWHS_CT_Heart_split.MMWHS_CT_Heart_split()
+    elif args.dataset_name == "Kvasir_capsule":
+        Kvasir_capsule_split.Kvasir_capsule_split()
     else:
         print("Let's input dataset name")
